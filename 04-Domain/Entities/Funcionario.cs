@@ -19,6 +19,6 @@ namespace _04_Domain.Entities
 
         [Required(ErrorMessage = "Department field is required.")]
         public string Department { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

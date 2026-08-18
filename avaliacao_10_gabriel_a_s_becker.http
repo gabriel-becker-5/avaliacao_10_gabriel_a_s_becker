@@ -1,0 +1,6 @@
+@avaliacao_10_gabriel_a_s_becker_HostAddress = http://localhost:5255
+
+GET {{avaliacao_10_gabriel_a_s_becker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

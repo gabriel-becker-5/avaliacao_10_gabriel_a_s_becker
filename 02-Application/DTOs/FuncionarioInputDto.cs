@@ -17,4 +17,4 @@ namespace _02_Application.DTOs
         [Required(ErrorMessage = "Department field is required.")]
         public string Department { get; set; }
     }
-}
+} 

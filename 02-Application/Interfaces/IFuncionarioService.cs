@@ -10,7 +10,7 @@ namespace _02_Application.Interfaces
 
         public Task CreateAsync(FuncionarioInputDto dto);
 
-        public Task UpdateAsync(int id);
+        public Task UpdateAsync(int id, FuncionarioInputDto dto);
         
         public Task DeleteAsync(int id);
     }

@@ -12,9 +12,17 @@
 
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.30" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="xunit" Version="2.5.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+    <PackageReference Include="xunit.v3" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\01-Presentation\01-Presentation.csproj" />
+    <ProjectReference Include="..\02-Application\02-Application.csproj" />
+    <ProjectReference Include="..\03-Infrastructure\03-Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

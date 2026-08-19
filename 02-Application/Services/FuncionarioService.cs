@@ -59,7 +59,7 @@ namespace _02_Application.Services
             return funcionarioDto;
         }
 
-        public async Task CreateAsync(FuncionarioInputDto dto)
+        public async Task<FuncionarioOutputDto> CreateAsync(FuncionarioInputDto dto)
         {
             Funcionario newEmployee = new Funcionario
             {
@@ -69,7 +69,19 @@ namespace _02_Application.Services
                 Position = dto.Position
             };
 
-            await _funcionarioRepository.AddAsync(newEmployee);
+            var novoFuncionario = await _funcionarioRepository.AddAsync(newEmployee);
+
+            FuncionarioOutputDto funcionarioOutput = new FuncionarioOutputDto
+            {
+                Id = novoFuncionario.Id,
+                Name = novoFuncionario.Name,
+                Department = novoFuncionario.Department,
+                Position = novoFuncionario.Position,
+                Salary = novoFuncionario.Salary,
+                IsActive = novoFuncionario.IsActive
+            };
+
+            return (funcionarioOutput);
         }
 
         public async Task UpdateAsync(int id, FuncionarioInputDto dto)
@@ -85,6 +97,7 @@ namespace _02_Application.Services
             funcionario.Position = dto.Position;
             funcionario.Salary = dto.Salary;
             funcionario.Department = dto.Department;
+            _funcionarioRepository.UpdateAsync(funcionario);
             await _funcionarioRepository.SaveChangesAsync();
         }
 

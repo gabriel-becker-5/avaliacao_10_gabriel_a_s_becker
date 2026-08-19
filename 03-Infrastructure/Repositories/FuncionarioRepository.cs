@@ -24,15 +24,16 @@ namespace _03_Infrastructure.Repositories
             return await _context.Funcionarios.FindAsync(id);
         }
 
-        public async Task AddAsync(Funcionario funcionario)
+        public async Task<Funcionario> AddAsync(Funcionario funcionario)
         {
             _context.Funcionarios.Add(funcionario);
             await _context.SaveChangesAsync();
+            return funcionario;
         }
 
-        public async Task UpdateAsync(int id)
+        public void UpdateAsync(Funcionario funcionario)
         {
-            await _context.SaveChangesAsync();
+            _context.Funcionarios.Update(funcionario);
         }
 
         public async Task DeleteAsync(Funcionario funcionario)

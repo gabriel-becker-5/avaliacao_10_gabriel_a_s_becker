@@ -1,4 +1,5 @@
-﻿using _02_Application.Interfaces;
+﻿using _02_Application.DTOs;
+using _02_Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _01_Presentation.Controllers
@@ -15,11 +16,16 @@ namespace _01_Presentation.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Logar(string usuario, string senha)
+        public async Task<IActionResult> Logar(UserLoginDto usuario)
         {
-            if (usuario == "admin" && senha == "123456")
+            if (!ModelState.IsValid)
             {
-                var token = _tokenservice.GerarToken(usuario);
+                return BadRequest();
+            }
+
+            if (usuario.Username == "admin" && usuario.Password == "123456")
+            {
+                var token = _tokenservice.GerarToken(usuario.Username);
                 return Ok(new { token });
             }
 

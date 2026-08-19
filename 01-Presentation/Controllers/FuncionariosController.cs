@@ -34,8 +34,10 @@ namespace _01_Presentation.Controllers
                 return BadRequest();
             }
 
-            await _funcionarioService.CreateAsync(dto);
-            return CreatedAtAction(null, null);
+            var novoFuncionario = await _funcionarioService.CreateAsync(dto);
+
+            return CreatedAtAction(nameof(GetEmployeeById),
+                new { id = novoFuncionario.Id }, novoFuncionario);
         }
 
         /// <summary>
@@ -44,7 +46,7 @@ namespace _01_Presentation.Controllers
         [ProducesResponseType(200)]
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> GetAllEmployess()
+        public async Task<IActionResult> GetAllEmployees()
         {
             return Ok(await _funcionarioService.GetAllAsync());
         }

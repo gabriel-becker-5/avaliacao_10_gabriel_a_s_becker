@@ -8,9 +8,9 @@ namespace _04_Domain.Interfaces
 
         public Task<Funcionario> GetByIdAsync(int id);
 
-        public Task AddAsync(Funcionario funcionario);
+        public Task<Funcionario> AddAsync(Funcionario funcionario);
 
-        public Task UpdateAsync(int id);
+        public void UpdateAsync(Funcionario funcionario);
 
         public Task DeleteAsync(Funcionario funcionario);
 

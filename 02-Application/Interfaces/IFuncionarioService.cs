@@ -1,4 +1,5 @@
 ﻿using _02_Application.DTOs;
+using _04_Domain.Entities;
 
 namespace _02_Application.Interfaces
 {
@@ -8,7 +9,7 @@ namespace _02_Application.Interfaces
 
         public Task<FuncionarioOutputDto> GetByIdAsync(int id);
 
-        public Task CreateAsync(FuncionarioInputDto dto);
+        public Task<FuncionarioOutputDto> CreateAsync(FuncionarioInputDto dto);
 
         public Task UpdateAsync(int id, FuncionarioInputDto dto);
         
